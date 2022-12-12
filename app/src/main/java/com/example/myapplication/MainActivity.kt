@@ -14,16 +14,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
-        val currentDate = sdf.format(Date())
+        val format = SimpleDateFormat("dd/MM/yyyy")
 
-        findViewById<TextView>(R.id.textView).text=currentDate
+        val currentDate = format.format(Date()).toLong()
+        val kalender= findViewById<CalendarView>(R.id.kalendarz)
+        kalender.minDate=currentDate
 
 
 
-            findViewById<CalendarView>(R.id.calendarView).setOnDateChangeListener { calendarView, dzien, miesiac, rok ->
-                findViewById<Button>(R.id.poczatek)
-                val dat1=(rok.toString()+"-"+(miesiac+1).toString()+"-"+dzien.toString())
+        findViewById<CalendarView>(R.id.kalendarz).setOnDateChangeListener { calendarView, dzien, miesiac, rok ->
+            findViewById<Button>(R.id.poczatek)
+                val dat1=(rok.toString()+ "-"+(miesiac+1)+"-"+dzien)
                 findViewById<TextView>(R.id.textView).text=dat1
                 findViewById<Button>(R.id.poczatek).setOnClickListener {
                     val dat2=(rok.toString()+"-"+(miesiac+1).toString()+"-"+dzien.toString())
@@ -35,5 +36,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
         }
-   }
+
+    }
 }

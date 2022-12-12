@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.606" />
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/kalendarz"
         android:layout_width="318dp"
         android:layout_height="354dp"
         app:layout_constraintBottom_toBottomOf="parent"
