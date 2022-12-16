@@ -5,8 +5,7 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,11 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val format = SimpleDateFormat("dd/MM/yyyy")
-
-        val currentDate = format.format(Date()).toLong()
         val kalender= findViewById<CalendarView>(R.id.kalendarz)
-        kalender.minDate=currentDate
+
+        kalender.setMinDate(Date().getTime())
+
+
+
+
 
 
 
