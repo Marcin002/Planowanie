@@ -5,7 +5,8 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.util.Date
+import java.time.Duration
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,14 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val kalender= findViewById<CalendarView>(R.id.kalendarz)
-
-        kalender.setMinDate(Date().getTime())
-
-
-
-
-
-
+        kalender.setMinDate(Date().getTime()) //mindate
+        kalender.maxDate=kalender.minDate+63113851900 //maxdate
 
         findViewById<CalendarView>(R.id.kalendarz).setOnDateChangeListener { calendarView, dzien, miesiac, rok ->
             findViewById<Button>(R.id.poczatek)
@@ -35,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                     val dat3=(rok.toString()+"-"+(miesiac+1).toString()+"-"+dzien.toString())
                     findViewById<TextView>(R.id.przyjazd).text=dat3
                 }
+
 
         }
 
